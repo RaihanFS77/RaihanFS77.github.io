@@ -1,27 +1,31 @@
 <html>
 	<head>
         <link rel="stylesheet" href="tablestyles.css">
-		<title>Hasil Web Scrapping</title>
+        <title>Hasil Web Scrapping</title>
         <!--Import library jquery-->
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 	</head>
 	<body>
-        <h1>Headline Republika Online</h1>
+        <h1 class="title">Headline Republika Online</h1>
         <div id="headline_json"></div>
 	</body>
     <script type="text/javascript">
         $(function(){
             //mengambil data dari file json
             $.get('headline.json',function(obj){
-                var str = "<table border=1>";
-                str +="<tr><td>No</td><td class='tables'>Judul Headline</td><td class='tables'>Kategori</td><td class='tables'>Waktu Publish</td><td class='tables'>Waktu Scrapping</td></tr>";
+                var str = "<table class='content-table' border=1 style='margin-left:auto;margin-right:auto'>";
+                str += "<thead>"
+                str +="<tr><td>No</td><td>Judul Headline</td><td>Kategori</td><td>Waktu Publish</td><td>Waktu Scrapping</td></tr>";
+                str += "</thead>"
+                str += "<tbody>"
                 $.each(obj,function(n,data){
                     str +="<tr><td>" + (n+1) + "</td>";
                     str +="<td>" + data.Judul + "</td>";
-                    str +="<td class='tables'>" + data.Kategori + "</td>";
-                    str +="<td class='tables'>" + data.Waktu_publish + "</td>";
-                    str +="<td class='tables'>" + data.Waktu_scrapping + "</td></tr>";
+                    str +="<td>" + data.Kategori + "</td>";
+                    str +="<td>" + data.Waktu_publish + "</td>";
+                    str +="<td>" + data.Waktu_scrapping + "</td></tr>";
                 });
+                str+="</tbody>";
                 str +="</table>";
                 $('#headline_json').html(str);
             });
