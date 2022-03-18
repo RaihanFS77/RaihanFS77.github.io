@@ -1,0 +1,34 @@
+<html>
+	<head>
+        <link rel="stylesheet" href="/source/styles.css">
+		<title>Hasil Web Scrapping</title>
+        <!--Import library jquery-->
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	</head>
+	<body>
+        <h1 class="header"> NovelUpdate Top 100 List</h1>
+        <div id="hasil_scrap_json"></div>
+	</body>
+    <script type="text/javascript">
+        $(function(){
+            //mengambil data dari file json
+            $.get('/source/hasil_scrap.json',function(obj){
+                var str = "<table border=1 class=content-table>";
+                str +="<thead>"
+                str +="<tr><td>Cover</td><td>Judul</td><td>Origin</td><td>Rating</td><td>Waktu Scrapping</td></tr>";
+                str +="</thead>"
+                str += "<tbody>"
+                $.each(obj,function(n,data){
+                    str +="<td class=image-cover>" +"<img src=" + data.img_src + ">" + "</td>";
+                    str +="<td>" + data.Judul + "</td>";
+                    str +="<td style='text-align:center'>" + data.origin + "</td>";
+                    str +="<td style='text-align:center'>" + data.rating + "</td>";
+                    str +="<td style='text-align:center'>" + data.Waktu_scrapping + "</td></tr>";
+                });
+                str += "</tbody>"
+                str +="</table>";
+                $('#hasil_scrap_json').html(str);
+            });
+        });
+    </script>
+</html>
