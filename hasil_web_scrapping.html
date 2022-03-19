@@ -1,6 +1,6 @@
 <html>
 	<head>
-        <link rel="stylesheet" href="tablestyles.css">
+        <link rel="stylesheet" href="./web_scrapping/tablestyles.css">
         <title>Hasil Web Scrapping</title>
         <!--Import library jquery-->
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
@@ -12,7 +12,7 @@
     <script type="text/javascript">
         $(function(){
             //mengambil data dari file json
-            $.get('headline.json',function(obj){
+            $.get('./web_scrapping/headline.json',function(obj){
                 var str = "<table class='content-table' border=1 style='margin-left:auto;margin-right:auto'>";
                 str += "<thead>"
                 str +="<tr><td>No</td><td>Judul Headline</td><td>Kategori</td><td>Waktu Publish</td><td>Waktu Scrapping</td></tr>";
