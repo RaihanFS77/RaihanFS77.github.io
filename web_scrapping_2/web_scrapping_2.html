@@ -1,5 +1,7 @@
 <html>
 	<head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="page_type" content="np-template-header-footer-from-plugin">
         <link rel="stylesheet" href="source/styles.css">
 		<title>Hasil Web Scrapping</title>
         <!--Import library jquery-->
@@ -20,7 +22,7 @@
                 str += "<tbody>"
                 $.each(obj,function(n,data){
                     str +="<td class=image-cover>" +"<img src=" + data.img_src + ">" + "</td>";
-                    str +="<td>" + data.Judul + "</td>";
+                    str +="<td>#" + (n+1) + " " + data.Judul + "</td>";
                     str +="<td style='text-align:center'>" + data.origin + "</td>";
                     str +="<td style='text-align:center'>" + data.rating + "</td>";
                     str +="<td style='text-align:center'>" + data.Waktu_scrapping + "</td></tr>";
